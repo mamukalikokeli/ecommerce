@@ -1,1 +1,44 @@
-<p>login works!</p>
+<alte-auth-head
+title="Login"
+/>
+
+<div class="auth-container">
+   
+    <form [formGroup]="form">
+       
+        <alte-input
+       label="email"
+       placeholder="email" 
+       formControlName="email" 
+       type="email"
+       [disabled]="true"/>
+       
+       <alte-input
+       label="password"
+       placeholder="Enter your password" 
+       formControlName="password" 
+       type="password"/>
+
+       <div class="recovery">
+        <a routerLink="/auth/recovery">Forgot Password?</a>
+       </div>
+
+       <div class="auth-actions">
+        <button
+            alte-button
+            block
+            (click)="submit()"
+            
+        >
+            Sign In 
+        </button>
+        
+       </div>
+   </form>
+
+   <div class="more-actions">
+    Don't have an account? <a routerLink="/auth/register">Sign up</a>
+   </div>
+</div>
+
+{{form.value|json}}

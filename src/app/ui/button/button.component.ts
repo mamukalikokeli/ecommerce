@@ -1,4 +1,4 @@
-import { Component, Host, Input, input } from '@angular/core';
+import { Component, Host, Input, booleanAttribute, input } from '@angular/core';
 
 @Component({
   selector: 'alte-button',
@@ -15,10 +15,15 @@ import { Component, Host, Input, input } from '@angular/core';
     '[class.alte-button--outline]': 'theme==="outline"',
     '[class.alte-button--outline-black]': 'theme==="outline-black"',
     '[class.alte-button--link]': 'theme==="link"',
+    '[class.alte-button--block]': 'block',
 
   }
 })
 export class ButtonComponent {
     @Input() theme: 'primery'|'outline'|'outline-black'|'link'='primery'
     @Input() size: 'default'|'small'='default'
+    @Input() disabled: boolean=false
+    @Input({
+      transform: booleanAttribute
+    }) block:boolean=false
 }
