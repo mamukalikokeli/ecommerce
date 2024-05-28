@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../core/services';
 import { environment } from '../../environments/environment';
-import { RegisterResponce, registerPayload } from '../core/interfaces/auth-payload';
+import { AuthResponce, AuthPayload } from '../core/interfaces/auth-payload';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,8 +12,15 @@ export class AuthService extends ApiService {
   override apiUrl=environment.firebaseAuthUrl;
   apiKey=environment.firebaseApiKey
 
-  register(params: registerPayload): Observable<RegisterResponce>{
-      return this.post<RegisterResponce>(`accounts:signUp?key=${this.apiKey}`, params)
+  register(params: AuthPayload): Observable<AuthResponce>{
+      return this.post<AuthResponce>(`accounts:signUp?key=${this.apiKey}`, params)
+  }
+
+  login(payload: AuthPayload): Observable<AuthResponce>{
+    return this.post<AuthResponce>(`accounts:signInWithPassword?key=${this.apiKey}`, {
+      ...payload,
+      returnSecureToken: true
+    })
   }
 
 }

@@ -1,12 +1,14 @@
-export interface registerPayload {
+export interface AuthPayload {
     email: string,
     password: string,
 }
 
-export interface RegisterResponce {
+export interface AuthResponce {
     idtoken: string,
     email: string,
     refreshToken: string,
     expiresIn: "3600",
-    localId: ''
+    localId: string,
+    displayName?: string,
+    registered?: boolean
 }

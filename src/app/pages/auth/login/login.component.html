@@ -3,6 +3,19 @@ title="Login"
 />
 
 <div class="auth-container">
+
+    @if (errorMessage) {
+        <alte-alert
+        type="error"
+        [message]="errorMessage"
+        />
+    }
+    @if (successMessage) {
+        <alte-alert
+        type="success"
+        [message]="successMessage"
+        />
+    }
    
     <form [formGroup]="form">
        

@@ -3,18 +3,21 @@ import { AuthHeadComponent } from "../auth-head/auth-head.component";
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { InputComponent } from '../../../components/input/input.component';
 import { AuthService } from '../../../services/auth.service';
-import { registerPayload } from '../../../core/interfaces/auth-payload';
-import { Subject, takeUntil } from 'rxjs';
+import { AuthPayload } from '../../../core/interfaces/auth-payload';
+import { Subject, catchError, takeUntil, throwError } from 'rxjs';
+import { AuthFacade } from '../../../facades';
+import { Router } from '@angular/router';
+import { AlertComponent } from "../../../components/alert/alert.component";
 
 @Component({
     selector: 'alte-register',
     standalone: true,
     templateUrl: './register.component.html',
-    styleUrls:  [
+    styleUrls: [
         '../auth.style.scss',
         './register.component.scss'
     ],
-    imports: [AuthHeadComponent, InputComponent, ReactiveFormsModule, FormsModule, InputComponent]
+    imports: [AuthHeadComponent, InputComponent, ReactiveFormsModule, FormsModule, InputComponent, AlertComponent]
 })
 export class RegisterComponent implements OnDestroy {
    
@@ -24,7 +27,12 @@ export class RegisterComponent implements OnDestroy {
         password: new FormControl<string>("", Validators.required),
     });
 
-    authService=inject(AuthService);
+    authFacade=inject(AuthFacade);
+    router=inject(Router)
+    
+    errorMessage: string|null=null
+    successMessage: string|null=null
+
     sub$=new Subject()
 
     submit(){
@@ -35,22 +43,34 @@ export class RegisterComponent implements OnDestroy {
             return
         }
 
+        this.errorMessage=null
+        this.successMessage=null
+
         const{email, password}=this.form.value as{email:string, password:string}
 
         email.trim()
         password.trim()
 
-        const payload: registerPayload={
+        const payload: AuthPayload={
             email,
             password
         }
 
-        this.authService.register(payload)
+        this.authFacade.register(payload)
         .pipe(
-            takeUntil(this.sub$)
+            takeUntil(this.sub$),
+            catchError(({error})=>{
+                this.errorMessage=error.error.message
+                return throwError(()=>error.error.message)
+            })
         )
         .subscribe(res=>{
-            console.log(res)              
+            if(res){
+                this.successMessage='You are registered successfully! redirecting to login page...';
+                setTimeout(()=>{
+                    this.router.navigate(['/'])
+                }, 1500)
+            }              
         })
     }
 
