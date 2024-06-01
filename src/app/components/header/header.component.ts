@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonComponent } from "../../ui/button/button.component";
 import { RouterLink } from '@angular/router';
+import { AuthFacade } from '../../facades';
 
 @Component({
     selector: 'alte-header',
@@ -13,5 +14,19 @@ import { RouterLink } from '@angular/router';
     ]
 })
 export class HeaderComponent {
+
+  authfacade=inject(AuthFacade)
+
+  get user(){
+    return this.authfacade.user
+  }
+
+  get isAuthenticated(){
+    return this.authfacade.isAuthenticated
+  }
+
+logout() {
+
+}
 
 }

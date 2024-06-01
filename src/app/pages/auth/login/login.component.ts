@@ -32,8 +32,6 @@ export class LoginComponent {
     authFacade=inject(AuthFacade)
     router=inject(Router)
     
-    
-
     errorMessage: string|null=null
     successMessage: string|null=null
 

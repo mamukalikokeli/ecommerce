@@ -1,0 +1,29 @@
+<alte-auth-head
+title="My Account"
+/>
+
+<div class="container my_account">
+   <div class="left">
+    <ul class="side-menu">
+        <li routerLink="/profile/orders" routerLinkActive="active">
+            <div class="side-menu__icon">
+                <img src="assets/icones/Cart.svg" alt="">
+            </div>
+            <div side-menu__name>orders</div>
+        </li>
+        <li routerLink="/profile/orders" routerLinkActive="active">
+            <div class="side-menu__icon">
+                <img src="assets/icones/Heart.svg" alt="">
+            </div>
+            <div side-menu__name>Wishlist</div>
+        </li>
+        <li>
+            <a>Logout</a>
+        </li>
+    </ul>
+   </div>
+   <div class="right">
+    <router-outlet/>
+   </div>
+</div>
+

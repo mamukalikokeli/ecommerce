@@ -1,5 +1,5 @@
 <alte-auth-head
-title="Login"
+title="Reset Password"
 />
 
 <div class="auth-container">
@@ -16,42 +16,35 @@ title="Login"
         [message]="successMessage"
         />
     }
+
+    <div class="auth-description">
+        Please enter the email address associated with your account. We'll promptly send you a link to reset your password.
+    </div>
    
     <form [formGroup]="form">
        
-        <alte-input
-       label="email"
-       placeholder="email" 
-       formControlName="email" 
-       type="email"
-       [disabled]="true"/>
        
        <alte-input
        label="password"
        placeholder="Enter your password" 
-       formControlName="password" 
+       formControlName="newPassword" 
        type="password"/>
 
-       <div class="recovery">
-        <a routerLink="/auth/recovery">Forgot Password?</a>
-       </div>
+       
 
        <div class="auth-actions">
         <button
             alte-button
             block
-            (click)="submit()"
+            (click)="resetPassword()"
             
         >
-            Sign In 
+           Reset password
         </button>
         
        </div>
    </form>
 
-   <div class="more-actions">
-    Don't have an account? <a routerLink="/auth/register">Sign up</a>
-   </div>
+   
 </div>
-
 

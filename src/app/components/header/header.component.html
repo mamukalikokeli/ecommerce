@@ -29,9 +29,27 @@
         <div class="profile__item">
             <img src="assets/icons/Cart.svg">
         </div>
+
+        @if(isAuthenticated){
+            <div id="profile" class="profile__item" routerLink="/profile">
+                <img src="assets/icons/User-1.svg">
+            </div>
+    
+            <div class="profile__item" (click)="logout()">
+                <img src="assets/icons/Logout.svg">
+            </div>
+        }@else {
+            <div id="auth-profile" class="profile__item" routerLink="/auth">
+                <img src="assets/icons/User-1.svg">
+            </div> 
+        }
         
         <div class="profile__item" routerLink="/auth">
             <img src="assets/icons/User-1.svg">
+        </div>
+
+        <div class="profile__item" (click)="logout()">
+            <img src="assets/icons/Logout.svg">
         </div>
         
     </div>
