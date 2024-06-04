@@ -1,49 +1,44 @@
 <alte-auth-head
-title="Reset Password"
+  title="Password Recovery"
 />
 
 <div class="auth-container">
 
-    @if (errorMessage) {
-        <alte-alert
-        type="error"
-        [message]="errorMessage"
-        />
-    }
-    @if (successMessage) {
-        <alte-alert
-        type="success"
-        [message]="successMessage"
-        />
-    }
+  @if (errorMessage){
+    <alte-alert
+      type="error"
+      [message]="errorMessage"
+    />
+  }
+  @if (successMessage){
+    <alte-alert
+      type="success"
+      [message]="successMessage"
+    />
+  }
 
-    <div class="auth-description">
-        Please enter the email address associated with your account. We'll promptly send you a link to reset your password.
+  <div class="auth-description">
+    Please enter the email address associated with your account. We'll promptly send you a link to reset your password.
+  </div>
+  <form [formGroup]="form">
+    <alte-input
+      label="Email"
+      placeholder="Enter your email"
+      formControlName="email"
+      type="email"
+    />
+
+
+    <div class="auth-actions">
+      <button
+        alte-button
+        block
+        (click)="sendLink()"
+      >
+        Send reset link
+      </button>
     </div>
-   
-    <form [formGroup]="form">
-       
-        <alte-input
-       label="email"
-       placeholder="email" 
-       formControlName="email" 
-       type="email"
-       />
+  </form>
 
-       
 
-       <div class="auth-actions">
-        <button
-            alte-button
-            block
-            (click)="sendLink()"
-            
-        >
-            Send reset link
-        </button>
-        
-       </div>
-   </form>
-
-   
 </div>

@@ -1,29 +1,37 @@
 <alte-auth-head
-title="My Account"
+  title="My Account"
 />
 
-<div class="container my_account">
-   <div class="left">
+<div class="conatiner my_account">
+  <div class="left">
     <ul class="side-menu">
-        <li routerLink="/profile/orders" routerLinkActive="active">
-            <div class="side-menu__icon">
-                <img src="assets/icones/Cart.svg" alt="">
-            </div>
-            <div side-menu__name>orders</div>
-        </li>
-        <li routerLink="/profile/orders" routerLinkActive="active">
-            <div class="side-menu__icon">
-                <img src="assets/icones/Heart.svg" alt="">
-            </div>
-            <div side-menu__name>Wishlist</div>
-        </li>
-        <li>
-            <a>Logout</a>
-        </li>
+      <li routerLink="/profile/orders" routerLinkActive="active">
+        <div class="side-menu__icon">
+          <img src="assets/icons/Cart.svg">
+        </div>
+        <div class="side-menu__name">Orders</div>
+      </li>
+      <li routerLink="/profile/wishlist" routerLinkActive="active">
+        <div class="side-menu__icon">
+          <img src="assets/icons/Heart.svg">
+        </div>
+        <div class="side-menu__name">Wishlist</div>
+      </li>
+      <li routerLink="/profile/password">
+        <div class="side-menu__icon">
+          <img src="assets/icons/Key.svg">
+        </div>
+        <div class="side-menu__name">Password</div>
+      </li>
+      <li>
+        <div class="side-menu__icon">
+          <img src="assets/icons/Logout.svg">
+        </div>
+        <div class="side-menu__name">Logout</div>
+      </li>
     </ul>
-   </div>
-   <div class="right">
+  </div>
+  <div class="right">
     <router-outlet/>
-   </div>
+  </div>
 </div>
-

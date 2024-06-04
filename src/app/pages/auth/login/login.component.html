@@ -1,57 +1,53 @@
 <alte-auth-head
-title="Login"
+  title="Sign In"
 />
 
 <div class="auth-container">
 
-    @if (errorMessage) {
-        <alte-alert
-        type="error"
-        [message]="errorMessage"
-        />
-    }
-    @if (successMessage) {
-        <alte-alert
-        type="success"
-        [message]="successMessage"
-        />
-    }
-   
-    <form [formGroup]="form">
-       
-        <alte-input
-       label="email"
-       placeholder="email" 
-       formControlName="email" 
-       type="email"
-       [disabled]="true"/>
-       
-       <alte-input
-       label="password"
-       placeholder="Enter your password" 
-       formControlName="password" 
-       type="password"/>
+  @if (errorMessage){
+    <alte-alert
+      type="error"
+      [message]="errorMessage"
+    />
+  }
+  @if (successMessage){
+    <alte-alert
+      type="success"
+      [message]="successMessage"
+    />
+  }
 
-       <div class="recovery">
-        <a routerLink="/auth/recovery">Forgot Password?</a>
-       </div>
+  <form [formGroup]="form">
+    <alte-input
+      label="Email"
+      placeholder="Enter your email"
+      formControlName="email"
+      type="email"
+      [disabled]="true"
+    />
+    <alte-input
+      label="Password"
+      placeholder="Enter your password"
+      formControlName="password"
+      type="password"/>
 
-       <div class="auth-actions">
-        <button
-            alte-button
-            block
-            (click)="submit()"
-            
-        >
-            Sign In 
-        </button>
-        
-       </div>
-   </form>
+    <div class="recovery">
+      <a routerLink="/auth/recovery">Forgot your password?</a>
+    </div>
 
-   <div class="more-actions">
-    Don't have an account? <a routerLink="/auth/register">Sign up</a>
-   </div>
+    <div class="auth-actions">
+      <button
+        alte-button
+        block
+        (click)="submit()"
+      >
+        Sign In
+      </button>
+    </div>
+  </form>
+
+  <div class="more-actions">
+    Don't have an account?  <a routerLink="/auth/register">Sign up</a>
+  </div>
+
 </div>
-
-
