@@ -1,72 +1,144 @@
-.alte-button{
+.alte-button {
     border-radius: var(--border-radius-4);
-   
     font-family: var(--font-family);
     font-size: var(--font-size-14);
     font-weight: 500;
-    line-height: 175%;
     cursor: pointer;
     outline: none;
     border: none;
-
-    &--default{
-        width: 133px;
-        height: 44px;
-        padding: 12px 24px;
-    }
-
-    &--small{
-        width: 125px;
-        height: 40px;
-        padding: 12px 20px;
-    }
-
-    &--primery{
-        background: var(--neutral-black-b900);
-        color: var(--neutral-white-w900);
-
-        &:hover{
-            background: var(--neutral-black-b800);
-        }
-    }
-
-    &--outline{
+  
+    &--default {
+      width: 133px;
+      height: 44px;
+      padding: 12px 24px;
+  
+      &.alte-button--icon {
+        width: 44px;
+        padding: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+  
+      &.alte-button--outline-icon {
+        width: 44px;
+        padding: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background: var(--neutral-white-w900);
         border: 1px solid var(--neutral-black-b200);
         color: var(--neutral-black-b500);
-
-        &:hover{
-            background: var(--neutral-white-w200);
+  
+        &:hover {
+          background: var(--neutral-white-w200);
         }
-
-        &--link{
-            background: transparent;
-            border: none;
-            color: var(--neutral-black-b900);
-
-            &:hover{
-                text-decoration: underline;
-            }
-        }
-
-        &--outline-black{
-            background: var(--neutral-black-b900);
-            border: 1px solid var(--neutral-black-b200);
-            color: var(--neutral-white-w900);
-
-            &:hover{
-                background: var(--neutral-black-b800);
-            }
-        }
-
-        &--disabled{
-            background: var(--neutral-black-b200);
-            color: var(--neutral-black-b500);
-            cursor: not-allowed;
-        }
-
-        &--block{
-            width: 100%;
-        }
+      }
     }
-}
+  
+    &--small {
+      height: 40px;
+      width: 125px;
+      padding: 12px 20px;
+  
+      &.alte-button--icon {
+        width: 40px;
+        padding: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+  
+      &.alte-button--outline-icon {
+        width: 40px;
+        padding: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--neutral-white-w900);
+        border: 1px solid var(--neutral-black-b200);
+        color: var(--neutral-black-b500);
+  
+        &:hover {
+          background: var(--neutral-white-w200);
+        }
+      }
+    }
+    &--extra-small {
+      height: 35px;
+      width: auto;
+      padding: 0 20px;
+  
+      &.alte-button--icon {
+        width: 35px;
+        padding: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+  
+      &.alte-button--outline-icon {
+        width: 35px;
+        padding: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--neutral-white-w900);
+        border: 1px solid var(--neutral-black-b200);
+        color: var(--neutral-black-b500);
+  
+        &:hover {
+          background: var(--neutral-white-w200);
+        }
+      }
+    }
+  
+    &--primary {
+      background: var(--neutral-black-b900);
+      color: var(--neutral-white-w900);
+  
+      &:hover {
+        background: var(--neutral-black-b800);
+      }
+    }
+  
+    &--outline {
+      background: var(--neutral-white-w900);
+      border: 1px solid var(--neutral-black-b200);
+      color: var(--neutral-black-b500);
+  
+      &:hover {
+        background: var(--neutral-white-w200);
+      }
+    }
+  
+    &--link {
+      background: transparent;
+      border: none;
+      color: var(--neutral-black-b900);
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  
+    &--outline-black {
+      background: var(--neutral-black-b900);
+      border: 1px solid var(--neutral-black-b200);
+      color: var(--neutral-white-w900);
+  
+      &:hover {
+        background: var(--neutral-black-b800);
+      }
+    }
+  
+    &--disabled {
+      background: var(--neutral-black-b200);
+      color: var(--neutral-black-b500);
+      cursor: not-allowed;
+    }
+  
+    &--block {
+      width: 100%;
+    }
+  }

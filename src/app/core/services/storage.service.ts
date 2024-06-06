@@ -9,15 +9,9 @@ export class StorageService {
   }
 
   getItem(key: string) {
-    try {
-      const item = localStorage.getItem(key);
-      return item ? JSON.parse(item) : null;
-    } catch (error) {
-      console.error(`Error parsing JSON for key ${key}`, error);
-      return null;
-    }
+    const item = localStorage.getItem(key);
+    return item ? JSON.parse(item) : null;
   }
-  
 
   removeItem(key: string) {
     localStorage.removeItem(key);

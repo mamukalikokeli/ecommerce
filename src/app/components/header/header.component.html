@@ -1,52 +1,66 @@
 <div class="header-ads">
-    Get 25% OFF on your first order. Use code: <strong>WELCOME25</strong>
+  Get 25% OFF on your first order. Use code: <strong>WELCOME25</strong>
+</div>
+
+<header class="container">
+  <div class="logo">
+    <img src="assets/images/logo.svg" width="40">
+    <div class="logo__brand">Ecommerce</div>
   </div>
-  
-  <header class="conatiner">
-    <div class="logo">
-      <img src="assets/images/logo.svg" width="40">
-      <div class="logo__brand">Ecommerce</div>
+
+  <div class="nav">
+    <ul>
+      <li>
+        <a routerLink="/">Home</a>
+      </li>
+      <li>
+        <a [cdkMenuTriggerFor]="menu">Categories</a>
+        <ng-template #menu>
+          <div class="menu">
+            <ul>
+              @for (category of categories$ | async; track category.id) {
+                <li routerLink="/category" [queryParams]="{
+                  category: [category.id]
+                }">
+                  {{category.name}}
+                </li>
+              }
+            </ul>
+          </div>
+        </ng-template>
+      </li>
+      <li>
+        <a routerLink="/about">About</a>
+      </li>
+      <li>
+        <a routerLink="/contact">Contact</a>
+      </li>
+
+    </ul>
+
+  </div>
+  <div  class="profile">
+    <div class="profile__item" [routerLink]="['/profile','cart']">
+      <div>{{cartCount$ | async | currency:'USD':'$'}}</div>
+      <img src="assets/icons/Cart.svg"/>
     </div>
-  
-    <div class="nav">
-      <ul>
-        <li>
-          <a routerLink="/">Home</a>
-        </li>
-        <li>
-          <a routerLink="/categories">Categories</a>
-        </li>
-        <li>
-          <a routerLink="/about">About</a>
-        </li>
-        <li>
-          <a routerLink="/contact">Contact</a>
-        </li>
-  
-      </ul>
-  
-    </div>
-    <div  class="profile">
-      <div class="profile__item">
-        <img src="assets/icons/Cart.svg"/>
+
+    @if (isAuthenticated){
+      <div id="profile" class="profile__item" routerLink="/profile">
+        <img src="assets/icons/User-1.svg"/>
       </div>
-  
-      @if (isAuthenticated){
-        <div id="profile" class="profile__item" routerLink="/profile">
-          <img src="assets/icons/User-1.svg"/>
-        </div>
-        <div  class="profile__item" (click)="logout()">
-          <img src="assets/icons/Logout.svg"/>
-        </div>
-      } @else {
-        <div id="auth_profile" class="profile__item" routerLink="/auth">
-          <img src="assets/icons/User-1.svg"/>
-        </div>
-      }
-  
-  
-  
-  
-  
-    </div>
-  </header>
+      <div  class="profile__item" (click)="logout()">
+        <img src="assets/icons/Logout.svg"/>
+      </div>
+    } @else {
+      <div id="auth_profile" class="profile__item" routerLink="/auth">
+        <img src="assets/icons/User-1.svg"/>
+      </div>
+    }
+
+
+
+
+
+  </div>
+</header>

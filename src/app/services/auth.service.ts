@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ApiService} from "../core/services";
 import {environment} from "../../environments/environment";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {AuthPayload, AuthResponce} from "../core/interfaces/auth-payload";
 import {Observable} from "rxjs";
 import {User} from "../core/interfaces/user";

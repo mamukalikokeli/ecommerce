@@ -1,1 +1,1 @@
-export * from '../facades/auth.facade'
+export * from './auth.facade'

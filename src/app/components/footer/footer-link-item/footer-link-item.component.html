@@ -1,10 +1,8 @@
 
 <div class="title">{{title}}</div>
 
-    <div class="links">
-        @for (link of links; track link) {
-            <a [routerLink] class="links__link">{{link.title}}</a>
-        }
-        
-    </div>
-
+<div class="links">
+  @for (link of links; track link){
+    <a [routerLink]="link.url" class="links__link">{{link.title}}</a>
+  }
+</div>

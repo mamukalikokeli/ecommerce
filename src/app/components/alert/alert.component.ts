@@ -1,15 +1,16 @@
-import { Component, Input } from '@angular/core';
-import { NgClass } from '@angular/common';
+import {Component, Input} from '@angular/core';
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'alte-alert',
   standalone: true,
-  imports: [NgClass],
+  imports: [
+    NgClass
+  ],
   templateUrl: './alert.component.html',
   styleUrl: './alert.component.scss'
 })
 export class AlertComponent {
-@Input() type: 'success'|'error'|'info'='info'
-@Input() message: string=''
-
+  @Input() type: 'success' | 'error' | 'info' = 'info'
+  @Input() message: string = ''
 }

@@ -1,0 +1,111 @@
+<alte-auth-head
+  title="Checkout"
+/>
+
+<div class="container checkout">
+
+  <div class="checkout__list">
+    <h4>Shipping Address</h4>
+
+    <form [formGroup]="form">
+    <div class="one_column">
+      <alte-input
+        label="Street Address"
+        formControlName="street"
+      />
+    </div>
+
+      <div class="two_column">
+        <alte-input
+          label="City"
+          formControlName="city"
+        />
+        <alte-input
+          label="State"
+          formControlName="state"
+        />
+      </div>
+
+      <div class="two_column">
+        <alte-input
+          label="Zip Code"
+          formControlName="zipCode"
+        />
+        <alte-input
+          label="Country"
+          formControlName="country"
+        />
+      </div>
+
+      <div class="two_column personal-info">
+        <alte-input
+          label="Email"
+          formControlName="email"
+        />
+        <alte-input
+          label="Full name"
+          formControlName="fullName"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="checkout__details">
+    <div class="title">
+      Your Order
+    </div>
+
+    <div class="in-cart">
+      <div class="in-cart__images">
+        @for (cart of carts$ | async; track cart){
+          <div class="in-cart__images--image">
+            <img [src]="cart.cover" width="24px">
+          </div>
+        }
+      </div>
+
+      <button
+        class="in-cart__edit"
+        alte-button
+        theme="outline"
+        [disabled]="(sum$ | async) === 0"
+        routerLink="/profile/cart"
+      >Edit Cart</button>
+    </div>
+
+    <div class="finance-detail">
+      <alte-key-value
+        key="Subtotal"
+        [value]="((sum$ | async) || 0) | currency:'USD':'$'"
+      />
+      <alte-key-value
+        key="Shipping:"
+        value="Free"
+      />
+      <alte-key-value
+        key="Tax:"
+        [value]="((sum$ | async) || 0) * cartFacade.feePercentage | currency:'USD':'$'"
+      />
+
+      <div class="divider"></div>
+
+      <alte-key-value
+        key="Total:"
+        [value]="((sum$ | async) || 0) | currency:'USD':'$'"
+      />
+    </div>
+
+    <button
+      class="checkout__checkout"
+      alte-button
+      block
+      [disabled]="(sum$ | async) === 0"
+      (click)="checkout()"
+    >
+      Place Order
+    </button>
+
+    <div class="checkout__continue-shopping">
+      <a class="checkout__continue-shopping--link" routerLink="/">Continue Shopping</a>
+    </div>
+  </div>
+</div>

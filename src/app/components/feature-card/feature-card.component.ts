@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'alte-feature-card',
@@ -8,8 +8,9 @@ import { Component, Input } from '@angular/core';
   styleUrl: './feature-card.component.scss'
 })
 export class FeatureCardComponent {
-    
-  @Input() icon: 'Delivery'| 'StarBadge'| 'ShieldCheck'='StarBadge';
-  @Input() title: string='';
-  @Input() description: string='';
+
+  @Input() icon: 'Delivery' | 'StarBadge' | 'ShieldCheck' = 'StarBadge';
+  @Input() title: string = '';
+  @Input() description: string = '';
+
 }

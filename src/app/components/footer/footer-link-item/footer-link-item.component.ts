@@ -1,14 +1,17 @@
-import { Component, Input, input } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import {Component, Input} from '@angular/core';
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'alte-footer-link-item',
   standalone: true,
-  imports: [RouterLink],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './footer-link-item.component.html',
   styleUrl: './footer-link-item.component.scss'
 })
 export class FooterLinkItemComponent {
-    @Input() title: string='';
-    @Input() links: {title:string, url:string}[]=[];
+ @Input() title: string = '';
+
+  @Input() links: {title: string, url: string}[] = [];
 }

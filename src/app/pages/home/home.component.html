@@ -1,6 +1,6 @@
 <alte-hero-banner/>
 
-<div class="conatiner features">
+<div class="container features">
   @for(feature of features; track feature){
     <alte-feature-card
       [icon]="feature.icon"
@@ -8,6 +8,59 @@
       [description]="feature.description"
       />
   }
-
 </div>
 
+<div class="container product-latest">
+  <h3>Newest Products</h3>
+  <div class="products">
+    @for (latestProduct of latestProducts$ | async; track latestProduct.id){
+
+      <alte-product-item
+        [product]="latestProduct"
+      >
+      </alte-product-item>
+
+    }
+  </div>
+</div>
+
+<div class="promo">
+  <div class="container promo--container">
+    <div class="promo__content">
+      <div class="promo__content--title">
+        Browse Our Fashion Paradise!
+      </div>
+      <div class="promo__content--description">
+        Step into a world of style and explore our diverse collection of clothing categories.
+      </div>
+
+      <button
+
+        alte-button
+        [routerLink]="'/category'"
+        class="promo__content--button"
+      >
+        <span>Start Browsing</span>
+        <img src="assets/icons/Arrow%20Right.svg">
+      </button>
+    </div>
+    <div class="promo__image">
+      <img src="assets/images/promo-image.png">
+    </div>
+  </div>
+</div>
+
+
+<div class="container product-latest">
+  <h3>Best Selling</h3>
+  <div class="products">
+    @for (latestProduct of latestProducts$ | async; track latestProduct.id){
+
+      <alte-product-item
+        [product]="latestProduct"
+      >
+      </alte-product-item>
+
+    }
+  </div>
+</div>
