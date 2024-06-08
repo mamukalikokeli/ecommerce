@@ -5,6 +5,7 @@ import {AuthFacade} from "./auth.facade";
 import {map, throwError} from "rxjs";
 import {Color} from "../core/interfaces/color";
 import {WishlistService} from "../services/wishlist.service";
+
 import {Wishlist} from "../core/interfaces/wishlist";
 import {Product} from "../core/interfaces/product";
 

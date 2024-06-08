@@ -1,4 +1,4 @@
-import {Component, inject, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from "@angular/core"
 import {ActivatedRoute, Router} from "@angular/router";
 import {BreadcrumbComponent} from "../../components/breadcrumb/breadcrumb.component";
 import {CategoryFacade} from "../../facades/category.facade";

@@ -1,4 +1,4 @@
-import {inject, Injectable} from "@angular/core";
+import {inject, Injectable} from "@angular/core";;
 import {AuthService} from "../services/auth.service";
 import {AuthPayload} from "../core/interfaces/auth-payload";
 import {StorageService} from "../core/services";
